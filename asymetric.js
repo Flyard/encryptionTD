@@ -1,8 +1,7 @@
 const { generateKeyPair } = require("crypto");
 const crypto = require("crypto");
-require("dotenv").config();
 
-let test = generateKeyPair(
+generateKeyPair(
   "rsa",
   {
     modulusLength: 4096,
@@ -21,9 +20,3 @@ let test = generateKeyPair(
   },
   (err, publicKey, privateKey) => {}
 );
-
-const publicKeyObject = crypto.createPublicKey(process.env.PUBLIC_KEY);
-publicKeyObject.export({
-  format: "pem",
-  type: "spki",
-});
